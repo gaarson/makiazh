@@ -1,0 +1,139 @@
+body{
+  margin: 0;
+  padding-top: 45px;
+}
+.navbar-fixed-top{
+  height: 45px;
+}
+  .navbar-nav{
+    display: inline-block;
+    float: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav>li>a{
+    display: inline-block;
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 17px;
+    text-decoration: none;
+    font-weight: 400;
+  }
+  .nav-search{
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    padding-top: 5px;
+  }
+  .nav-search input{
+    border: 0;
+    border-bottom: 1px solid #999;
+    background-color: transparent;
+    outline: none;
+  }
+  .nav-search span{
+    display: block;
+    position: absolute;
+    width: 180px;
+    height: 2px;
+    left:21px;
+    bottom:2px;
+    border-radius: 3px;
+    background-color: #777;
+    transform: scalex(0);
+    transition-duration: 0.15s;
+  }
+  .nav-search input:focus+span{
+    transform: scalex(1);
+  }
+a,a:hover,a:focus,a:visited{
+  color:#000;
+  text-decoration: none;
+}
+.article{
+  padding: 15px 50px;
+}
+.article-link{
+  display: block;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  box-shadow: 0 0 1px #aaa;
+}
+.article-link img{
+  width: 100%;
+}
+.img-block{
+  vertical-align: top;
+  display: inline-block;
+  width: 30%;
+  box-shadow: 0 0 1px #aaa;
+  max-height: 300px;
+  overflow: hidden;
+}
+.text-block {
+  display: inline-block;
+  width: 65%;
+  margin-top: 10px;
+  padding-left: 15px;
+}
+.text-block h4{
+  padding-top: 0 ;
+  text-align: left ;
+  padding-left: 15px;
+  margin: 0;
+}
+.text-block p{
+  padding-top: 10px;
+  color: #777;
+}
+h1{
+  padding-left: 15px
+}
+h2{
+  padding-left: 30px;
+}
+.wrap{
+  width: 100%;
+  display: inline-block;
+}
+.right-panel{
+  padding: 0 10px 10px 10px;
+  width: 280px;
+  margin: 0 auto;
+  position: fixed;
+  right:20px;
+  top:200px;
+  border: 1px solid #000;
+}
+.right-panel>hr{
+  border-color: #444;
+}
+.right-panel ul{
+  list-style: none;
+  padding: 0;
+}
+.right-panel ul li{
+  padding: 5px;
+}
+.right-panel a{
+  color: #777;
+}
+.right-panel a:hover{
+  color: #000;
+}
+.test-link{
+  display: block;
+  text-align: center;
+  background-color:#fce8b5;
+  color:#000;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+}
+@media(max-width:1600px){
+  .right-panel{
+    width: 240px;
+  }
+}
