@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default () => {
+const Test = () => {
   return (
     <div className="col-sm-6">
       <div className="row">
@@ -210,3 +210,5 @@ export default () => {
     </div>
   )
 }
+
+export default Test;

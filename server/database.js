@@ -8,14 +8,16 @@ module.exports = {
     if(state.database) {
       return done();
     }
-    let connection = mysql.createConnection({
+    mysql.createConnection({
       host: 'localhost', 
       user: 'root',
       password: 'rustislav',
       database: 'makiazh'
+    }).then(connection => {
+      state.database = connection;
     });
-    state.database = connection;
     done();
   },
   get: () => (state.database)
 }
+

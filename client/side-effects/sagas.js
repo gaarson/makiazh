@@ -10,16 +10,16 @@ const reqHomepageData = () => {
       .end((err, res) => {
         if(err) reject(err)
         
-        console.log(res);
-        resolve(res.body)
+        let data = JSON.parse(res.text);
+        resolve(data);
       })
   });
 }
 
-function* fetchHomepage () {
+function* fetchHomepage() {
   try {
-    const homepageData = yield call(reqHomepageData);
-    yield put(getHomepageData.dataSuccess(homepageData));
+    const data = yield call(reqHomepageData);
+    yield put(getHomepageData.dataSuccess(data));
   } catch(err) {
     console.log(err);
     yield put(getHomepageData.dataError(err));
@@ -27,7 +27,7 @@ function* fetchHomepage () {
 }
 
 function* watchFetchHomepage() {
-  yield* takeLatest(GET_HOMEPAGE_DATA.DATA_PENDING ,fetchHomepage);
+  yield* takeLatest(GET_HOMEPAGE_DATA.DATA_PENDING, fetchHomepage);
 }
 
 export default function* forks() {

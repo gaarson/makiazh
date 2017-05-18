@@ -1,4 +1,5 @@
-  $(document).on('ready', function() {
+function Common() {
+  console.log('common');
     $(".articles-slider").slick({
       dots: true
     });
@@ -14,7 +15,6 @@
     $(".lessons-sider").slick({
       dots: true
     });
-  });
 
   var list_ques = document.getElementsByClassName('ask');
   var r_buts = document.getElementsByTagName('input');
@@ -77,3 +77,4 @@
       document.getElementById('dry').className='active';
     }
   }
+}

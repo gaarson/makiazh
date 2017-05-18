@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default (props) =>  
+const Nav = (props) =>  
   <nav className="navbar navbar-default navbar-fixed-top">
        <div className="container-fluid text-center">
           <div className="navbar-header">
@@ -32,3 +32,5 @@ export default (props) =>
         </div>
       </div>
     </nav>
+
+export default Nav;
