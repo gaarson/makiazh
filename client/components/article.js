@@ -1,11 +1,29 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Article = () => {
-  return(
-    <div>
-      afasfasfas
-    </div>
-  )
+const mapStateToProps = () => ({
+
+});
+
+const mapDispatchToProps = () => ({
+
+});
+
+class Article extends React.Component {
+
+  componentWillMount() {
+    console.log('article');
+  }
+
+  render() {
+  
+    return(
+      <div className="afasf">
+        afasfasfas
+      </div>
+    )
+  
+  }
 }
 
-export default Article;
+export default connect(mapStateToProps, mapDispatchToProps)(Article);

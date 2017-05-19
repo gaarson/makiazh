@@ -19,8 +19,10 @@ class App extends React.Component {
       if(!this.props.articlesList.length) this.props.fetchData(); 
     }
     
-    componentDidUpdate() {
-      Common();
+    componentDidMount() {
+        let script = document.createElement('script');
+        script.setAttribute('src', '/js/main.js');
+        document.body.appendChild(script);
     }
     
     render() {

@@ -2,9 +2,6 @@ body{
   margin: 0;
   padding-top: 45px;
 }
-.navbar-fixed-top{
-  height: 45px;
-}
   .navbar-nav{
     display: inline-block;
     float: none;
@@ -135,5 +132,31 @@ h2{
 @media(max-width:1600px){
   .right-panel{
     width: 240px;
+  }
+}
+
+/**new**/
+.navbar-fixed-top .navbar-collapse{
+  max-height: 100vh !important;
+}
+@media(max-width:1285px){
+  .navbar-toggle{
+    display: block !important;
+    margin-right: 15px;
+  }
+  .right-panel{
+    width: 16.6666667%;
+  }
+}
+@media(min-width:1286px){
+  .navbar-nav{
+      margin-bottom: -5px!important;
+  }
+}
+@media (max-width:1285px) {
+  .navbar-nav>li{
+    display: block;
+    text-align: center;
+    float: none;
   }
 }

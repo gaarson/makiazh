@@ -1,5 +1,3 @@
-function Common() {
-  console.log('common');
     $(".articles-slider").slick({
       dots: true
     });
@@ -77,4 +75,3 @@ function Common() {
       document.getElementById('dry').className='active';
     }
   }
-}

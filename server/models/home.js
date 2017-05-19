@@ -19,6 +19,7 @@ exports.homeData = (cb) => {
           }
         }
       }
+      result[0].head = true;
       console.log(result);
       return cb(result);
     })
