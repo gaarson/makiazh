@@ -9,6 +9,7 @@ import sagas from './side-effects/sagas.js';
 import * as reducers from './reducer/reducers.js';
 
 import App from './components/app.js';
+import CategoryList from './components/category-list.js';
 import Article from './components/article.js';
 import Admin from './components/admin.js';
 import Create from './components/admin_create.js';
@@ -21,8 +22,11 @@ render(
     <Provider store={store}>
         <Router>
           <div>
-            <Route path='/' component={App} />
-            <Route path='article/:id' component={Article} />
+            <Route exact path='/' component={App} />
+            <Route path='/article/:id' component={Article} /> 
+            <Route path='/category/:id' component={CategoryList} /> 
+            <Route path='/admin' component={Admin} /> 
+            <Route path='/admin/create/:id' component={Create} /> 
           </div>
         </Router>
     </Provider>,

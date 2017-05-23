@@ -14,13 +14,13 @@ const Nav = (props) =>
             </div>
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav">
-            <li><a href="/">Главная</a></li>
-            <li><a href="/lessons">Уроки макияжа</a></li>
-            <li><a href="#">Косметика</a></li>
-            <li><a href="#">Пошаговый макияж</a></li>
-            <li><a href="#">Процедуры по уходу за кожей</a></li>
-            <li><a href="#">Типы кожи лица</a></li>
-            <li><a href="video.html">Видео</a></li>
+            <li><Link to="/">Главная</Link></li>
+            <li><Link to="/category/1">Уроки макияжа</Link></li>
+            <li><Link to="/category/2">Косметика</Link></li>
+            <li><Link to="/category/3">Пошаговый макияж</Link></li>
+            <li><Link to="/category/4">Процедуры по уходу за кожей</Link></li>
+            <li><Link to="/category/5">Типы кожи лица</Link></li>
+            <li><Link to="/">Видео</Link></li>
             <li className="nav-search">
               <form action="index.html" method="get">
                 <label htmlFor="nav_search"><i className="fa fa-search"></i></label>

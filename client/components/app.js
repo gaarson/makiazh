@@ -16,6 +16,11 @@ const mapDispatchToProps = dispatch => ({
 
 class App extends React.Component {
     componentWillMount() {
+      let elem = document.createElement('link');
+      elem.setAttribute('rel', 'stylesheet');
+      elem.setAttribute('href', '/css/style.css');
+      document.head.appendChild(elem);
+
       if(!this.props.articlesList.length) this.props.fetchData(); 
     }
     

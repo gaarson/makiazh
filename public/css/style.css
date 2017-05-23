@@ -126,20 +126,25 @@
   .test-slider{
     overflow: hidden;
     height: 400px;
+    text-align: center;
   }
   .test-wraper{
     width: 470px;
     margin: 0 auto;
   }
   .test{
+    padding: 0;
     margin: 0;
     font-size: 16px;
+    text-align: left;
+    display: inline-block;
   }
   .test ul{
     list-style: none;
     padding: 0;
   }
   .test>li{
+    /*display: inline-block;*/
     padding-top:10px;
     font-weight: 700;
   }
@@ -197,7 +202,8 @@
     transition-duration: 0.2s;
   }
   .test-slider button.active{
-    left:220px;
+    left:50%;
+    margin-left: -85px;
     opacity: 1;
   }
   .test-slider button.off{
@@ -217,9 +223,9 @@
    .result-test>div{
      display: block;
      position: absolute;
-     width: 80%;
+     width: 90%;
      top:20px;
-     left: 90%;
+     left: 100%;
      opacity: 0;
      border: 1px solid #aaa;
      background-color: #fff;
@@ -230,7 +236,7 @@
    }
    .result-test .active{
      opacity: 1;
-     left: 10%;
+     left: 5%;
    }
    .test-slider{
     position: relative;
@@ -238,24 +244,30 @@
    .ask{
      display: inline-block;
      position: absolute;
-     left:80%;
      top:100px;
      opacity: 0;
      transition-delay: 0.1s;
      transition-duration: 0.2s;
+     transform: translateX(750px);
    }
    .test>.active{
-     left:150px;
      opacity: 1;
+      transform: translateX(50px);
    }
    .test>.off{
-     left: -100px;
+       transform: translateX(-700px);
    }
 /*********
 **header**
 *********/
 
 /**new**/
+.container-fluid>.navbar-header{
+  margin: 0;
+}
+.container-fluid{
+  padding: 0;
+}
 .navbar-fixed-top .navbar-collapse{
   max-height: 100vh !important;
 }
@@ -263,6 +275,14 @@
   .navbar-toggle{
     display: block !important;
     margin-right: 15px;
+  }
+  .navbar-nav{
+    display: block;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .nav>li>a{
+    width: 100%;
   }
 }
 @media(min-width:1286px){

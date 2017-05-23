@@ -1,0 +1,97 @@
+  body{
+    background-color: #fbfbfc;
+  }
+  .title-page{
+    background-color: #3c8dbc;
+    padding: 15px 30px;
+    position: fixed;
+    width: 100%;
+  }
+  .title-page h3{
+    display: inline-block;
+    padding: 0;
+    padding-top: 3px;
+    margin: 0;
+    color:#fff;
+  }
+  .title-page form{
+    width: 400px;
+    float: right;
+  }
+  .create{
+    margin-top: 15px;
+    padding: 5px 150px;
+    display: inline-block;
+    border:1px solid #000;
+    color:#000;
+    font-size: 20px;
+    transition-duration: 0.15s;
+    transition-property: color,background;
+    margin-bottom: 10px;
+  }
+  .create:hover,.create:focus,.create:active{
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+  }
+  .articles{
+    padding: 0 10px;
+    padding-top: 65px;
+    width: 100%;
+    text-align: center;
+  }
+  .articles>ul{
+    list-style: none;
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 5px;
+  }
+  .article{
+    background-color: #fff;
+    box-shadow: -1px 3px 3px #ccc;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  .article h3{
+    margin: 0;
+    padding: 25px 0;
+    padding-left: 15px;
+  }
+  .buttons{
+    display: block;
+    padding: 19px 0;
+    float: right;
+    height: 100%;
+  }
+  .buttons li{
+    display: inline-block;
+    margin: 0 10px;
+  }
+  .buttons li a{
+    display: inline-block;
+    border-radius: 30px;
+    color: #666;
+    font-size: 20px;
+    border: 1px solid #aaa;
+  }
+  .buttons li a:hover{
+    transform: scale(1.1);
+  }
+  .publish{
+    padding: 6px 10px;
+  }
+  .publish:hover{
+      color: #269926;
+  }
+  .update{
+    padding: 6px 12px;
+  }
+  .update:hover{
+    color: #367fa9;
+  }
+  .delete{
+    padding: 6px 12px;
+  }
+  .delete:hover{
+    color: #ff0000;
+  }
