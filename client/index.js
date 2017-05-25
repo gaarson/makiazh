@@ -26,7 +26,7 @@ render(
             <Route path='/article/:id' component={Article} /> 
             <Route path='/category/:id' component={CategoryList} /> 
             <Route path='/admin' component={Admin} /> 
-            <Route path='/admin/create/:id' component={Create} /> 
+            <Route path='/create/:id' component={Create} /> 
           </div>
         </Router>
     </Provider>,

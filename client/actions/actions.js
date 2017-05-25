@@ -1,6 +1,7 @@
 import {GET_HOMEPAGE_DATA,
         GET_ARTICLE,
         CREATE_ARTICLE,
+        GET_CATEGORIES,
         CATEGORY_LIST} from '../constants/consts.js';
 
 export const getHomepageData = {
@@ -15,6 +16,12 @@ export const getCategoryList = {
   categoryError: (error) => ({type: CATEGORY_LIST.LIST_SUCCESS, error})
 };
 
+export const getCategories = {
+  categoriesPending: () => ({type: GET_CATEGORIES.CATEGORIES_PENDING}),
+  categoriesSuccess: (data) => ({type: GET_CATEGORIES.CATEGORIES_SUCCESS, data}),
+  categoriesError: (error) => ({type: GET_CATEGORIES.CATEGORIES_ERROR, error})
+};
+
 export const getArticle = {
   articlePending: (id) => ({type: GET_ARTICLE.ARTICLE_PENDING, id}),
   articleSuccess: (articleData) => ({type: GET_ARTICLE.ARTICLE_SUCCESS, articleData}),
@@ -24,7 +31,7 @@ export const getArticle = {
 export const createArticle = {
   writeData: (e) => ({type: CREATE_ARTICLE.WRITE_DATA, e}),
   deleteArticle: (id) => ({type: CREATE_ARTICLE.DELETE_ARTICLE, id}),
-  createPending: () => ({type: CREATE_ARTICLE.CREATE_PENDING}),
+  createPending: (newArticle) => ({type: CREATE_ARTICLE.CREATE_PENDING, newArticle}),
   createSuccess: (success) => ({type: CREATE_ARTICLE.CREATE_SUCCESS, success}),
   createError: (error) => ({type: CREATE_ARTICLE.CREATE_ERROR, error})
 }

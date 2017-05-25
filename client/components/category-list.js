@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import renderHtml from 'react-html-parser';
 
 import { getCategoryList } from '../actions/actions.js';
 import Nav from '../components/nav.js';
@@ -13,6 +14,10 @@ const mapDispathToProps = dispath => ({
 
 class CategoryList extends React.Component {
   componentWillMount() {
+    let elem = document.createElement('link');
+    elem.setAttribute('rel', 'stylesheet');
+    elem.setAttribute('href', '/css/articles.css');
+    document.head.appendChild(elem);
     this.props.getList(this.props.match.params.id);
   }
 
@@ -20,15 +25,6 @@ class CategoryList extends React.Component {
     if(prevProps.match.params.id != this.props.match.params.id)
       this.props.getList(prevProps.match.params.id);
 
-  }
-
-  componentDidMount() {
-    let elem = document.createElement('link');
-    elem.setAttribute('rel', 'stylesheet');
-    elem.setAttribute('href', '/css/articles.css');
-    document.head.appendChild(elem);
-
-    this.props.getList(this.props.match.params.id);
   }
 
   render() {
@@ -41,6 +37,7 @@ class CategoryList extends React.Component {
             <div className="wrap">
               {
                 this.props.list.map(item => {
+                  console.log(item.discription);
                   return(
                     <div key={item.id} className="article">
                       <Link to={"/article/" + item.id} className="article-link">
@@ -49,7 +46,7 @@ class CategoryList extends React.Component {
                         </div>
                         <div className="text-block">
                           <h4>{item.title}</h4>
-                          <p className="text-news">{item.discription}</p>
+                          <p id='content' className="text-news">{renderHtml(item.discription)}</p>
                         </div>
                       </Link>
                     </div>

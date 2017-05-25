@@ -18,7 +18,7 @@ class Admin extends React.Component {
     elem.setAttribute('href', '/css/admin.css');
     document.head.appendChild(elem);
 
-    if(!this.props.list.length) this.props.getList();
+    if(!this.props.list.length) this.props.getList(0);
   }
 
   render() {
@@ -38,7 +38,7 @@ class Admin extends React.Component {
         </form>
       </header>
       <div className="articles">
-        <Link to="admin/create/">Создать статью</Link>
+        <Link to="/create/0" className="create">Создать статью</Link>
         <ul>
           {
             list.map(item => {
@@ -47,7 +47,7 @@ class Admin extends React.Component {
                   <ul className="buttons">
                     <li><a href="#" className="publish"><i className="fa fa-check"></i></a></li>
                     <li><a href="#" className="delete"><i className="fa fa-trash-o"></i></a></li>
-                    <li><a href="#" className="update"><i className="fa fa-refresh"></i></a></li>
+                    <li><Link to={"/create/" + item.id} className="update"><i className="fa fa-refresh"></i></Link></li>
                   </ul>
                   <h3>{item.title}</h3>
                 </li>

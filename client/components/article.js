@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import renderHtml from 'react-html-parser';
 
 import {getArticle} from '../actions/actions.js';
 
@@ -38,8 +39,10 @@ class Article extends React.Component {
 
           <div className='row'>
             <h1>{title}</h1>
-            <img src={logo} className="img" alt="" />
-            {discription}           
+            <img src={logo} className="img" alt="" /><br/>
+            <div>
+            {renderHtml(discription)}
+            </div>   
           </div>
         
         </div>

@@ -1,12 +1,20 @@
 const express = require('express'),
       path = require('path'),
-      db = require('./database.js');
+      db = require('./database.js'),
+      bodyParser = require('body-parser');
 
 const app = express();
 const PORT = 8080;
 
+app.use( bodyParser.json() );     
+app.use(bodyParser.urlencoded({     
+  extended: true
+}));
 app.use('/', express.static(path.join(__dirname, '../public')));
+
+app.post('/api/create', require('./controller/articles.js'));
 app.get('/home', require('./controller/home.js'));
+app.get('/api/category', require('./controller/category.js'));
 app.get('/api/article/:id', require('./controller/articles.js'));
 app.get('/api/list/:id', require('./controller/articles.js'));
 
