@@ -26,17 +26,26 @@ class CategoryList extends React.Component {
   }
 
   componentDidMount() {
-    let script = document.createElement('script');
-    script.setAttribute('src', '/js/list.js');
-    document.body.appendChild(script);
+    console.log($('.text-news'))
+      setTimeout(() => {
+    $('.text-news').each(function (shortme) {
+          console.log('work');
+          $(this).replaceWith("<p id='short-id"+shortme+"' class='text-news shortme'>" + $(this).text().substr(0,460) + "&hellip;</p>");
+      });
+      }, 200)
   }
-
   componentWillUpdate(prevProps) {
     if(prevProps.match.params.id != this.props.match.params.id) {
       this.props.getList(prevProps.match.params.id);
-      let script = document.createElement('script');
-      script.setAttribute('src', '/js/list.js');
-      document.body.appendChild(script);
+      setTimeout(() => {
+    $('.text-news').each(function (shortme) {
+          console.log('work');
+          $(this).replaceWith("<p id='short-id"+shortme+"' class='text-news shortme'>" + $(this).text().substr(0,460) + "&hellip;</p>");
+      });
+      }, 200)
+      //let script = document.createElement('script');
+      //script.setAttribute('src', '/js/list.js');
+      //document.body.appendChild(script);
     }
   }
 
@@ -54,7 +63,6 @@ class CategoryList extends React.Component {
             <div className="wrap">
               {
                 this.props.list.map(item => {
-                  console.log(item.discription);
                   return(
                     <div key={item.id} className="article">
                       <Link to={"/article/" + item.id} className="article-link">
