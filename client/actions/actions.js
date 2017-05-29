@@ -1,5 +1,9 @@
 import {GET_HOMEPAGE_DATA,
+        PUBLISHED_ARTICLE,
+        SEARCH_ARTICLE,
+        DELETE_ARTICLE,
         GET_ARTICLE,
+        EDIT_ARTICLE,
         CREATE_ARTICLE,
         GET_CATEGORIES,
         CATEGORY_LIST} from '../constants/consts.js';
@@ -28,10 +32,34 @@ export const getArticle = {
   articleError: (error) => ({type: GET_ARTICLE.ARTICLE_ERROR, error})
 };
 
+export const deleteArticle = {
+  deletePending: (id) => ({type: DELETE_ARTICLE.DELETE_PENDING, id}),
+  deleteSuccess: (success) => ({type: DELETE_ARTICLE.DELETE_SUCCESS, success}),
+  deleteError: (error) => ({type: DELETE_ARTICLE.DELETE_ERROR, error})
+}
+
 export const createArticle = {
+  logoPending: (logo, category) => ({type: CREATE_ARTICLE.LOGO_PENDING, logo, category}),
   writeData: (e) => ({type: CREATE_ARTICLE.WRITE_DATA, e}),
-  deleteArticle: (id) => ({type: CREATE_ARTICLE.DELETE_ARTICLE, id}),
   createPending: (newArticle) => ({type: CREATE_ARTICLE.CREATE_PENDING, newArticle}),
   createSuccess: (success) => ({type: CREATE_ARTICLE.CREATE_SUCCESS, success}),
   createError: (error) => ({type: CREATE_ARTICLE.CREATE_ERROR, error})
+}
+
+export const editArticle = { 
+  editPending: (id) => ({type: EDIT_ARTICLE.EDIT_PENDING, id}),
+  editSuccess: (article) => ({type: EDIT_ARTICLE.EDIT_SUCCESS, article}),
+  editError: (error) => ({type: EDIT_ARTICLE.EDIT_ERROR, error})
+}
+
+export const searchArticle = {
+  searchPending: (text) => ({type: SEARCH_ARTICLE.SEARCH_PENDING, text}),
+  searchSuccess: (list) => ({type: SEARCH_ARTICLE.SEARCH_SUCCESS, list}),
+  searchError: (error) => ({type: SEARCH_ARTICLE.SEARCH_ERROR, error})
+}
+
+export const publishedArticle = {
+  publishedPending: (check) => ({type: PUBLISHED_ARTICLE.PUBLISHED_PENDING, check}),
+  publishedSuccess: (success) => ({type: PUBLISHED_ARTICLE.PUBLISHED_PENDING, success}),
+  publishedError: (error) => ({type: PUBLISHED_ARTICLE.PUBLISHED_ERROR, error})
 }

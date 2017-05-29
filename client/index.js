@@ -13,6 +13,7 @@ import CategoryList from './components/category-list.js';
 import Article from './components/article.js';
 import Admin from './components/admin.js';
 import Create from './components/admin_create.js';
+import Find from './components/find.js';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(combineReducers(reducers), applyMiddleware(sagaMiddleware));
@@ -27,6 +28,7 @@ render(
             <Route path='/category/:id' component={CategoryList} /> 
             <Route path='/admin' component={Admin} /> 
             <Route path='/create/:id' component={Create} /> 
+            <Route path='/find' component={Find} />
           </div>
         </Router>
     </Provider>,

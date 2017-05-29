@@ -1,10 +1,10 @@
 const db = require('../database.js');
 
-const sqlHome = 'SELECT id, title, logo, category_id FROM articles';
+const sqlHome = 'SELECT id, title, logo, category FROM articles';
 
 exports.homeData = (cb) => {
   db.get().query(sqlHome).then(rows => {
-    let categories = [...new Set(rows.map(item => item.category_id))];
+    let categories = [...new Set(rows.map(item => item.category))];
     const sqlCategory = `SELECT title, id FROM categories WHERE id IN (${categories})`;
 
     db.get().query(sqlCategory).then(data => {
@@ -13,7 +13,7 @@ exports.homeData = (cb) => {
       
       for(let i = 0; i < rows.length; i++) {
         for(let j = 0; j < data.length; j++) {
-          if(rows[i].category_id == data[j].id) {
+          if(rows[i].category == data[j].id) {
             if(!result[j]['articles']) result[j]['articles'] = [];
             result[j]['articles'].push(rows[i]);
           }

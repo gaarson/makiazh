@@ -20,13 +20,18 @@ const Nav = (props) =>
             <li><Link to="/category/3">Пошаговый макияж</Link></li>
             <li><Link to="/category/4">Процедуры по уходу за кожей</Link></li>
             <li><Link to="/category/5">Типы кожи лица</Link></li>
-            <li><Link to="/">Видео</Link></li>
             <li className="nav-search">
-              <form action="index.html" method="get">
+              <div>
                 <label htmlFor="nav_search"><i className="fa fa-search"></i></label>
-                <input type="search" value="" id="nav_search" />
+                <input type="text" id="nav_search" onKeyPress={(e) => {
+                  console.log(e.key);
+                  props.searchArticle(e)
+                  if(e.key == 'Enter')
+                    props.history.push('/find')
+                }
+                }/>
                 <span></span>
-              </form>
+              </div>
             </li>
           </ul>
         </div>

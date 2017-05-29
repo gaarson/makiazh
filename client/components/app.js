@@ -1,5 +1,5 @@
 import React from 'react';
-import {getHomepageData} from '../actions/actions.js';
+import {getHomepageData, searchArticle} from '../actions/actions.js';
 import { connect } from 'react-redux';
 
 import Nav from './nav.js';
@@ -11,7 +11,11 @@ const mapStateToProps = ({ app }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchData: () => dispatch(getHomepageData.dataPending())
+  fetchData: () => dispatch(getHomepageData.dataPending()),
+  searchArticle: (text) => {
+    if(text.key == 'Enter')
+      dispatch(searchArticle.searchPending(text.target))
+  }
 });
 
 class App extends React.Component {
@@ -33,9 +37,10 @@ class App extends React.Component {
     render() {
       return(
         <div>
-            <Nav />
-            <Sliders list={this.props.articlesList}/>
-            <Test />
+        <Nav searchArticle={this.props.searchArticle}
+              history={this.props.history}/>
+          <Sliders list={this.props.articlesList}/>
+          <Test />
         </div>
       )
     }

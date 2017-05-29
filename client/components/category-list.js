@@ -1,15 +1,19 @@
-import React from 'react';
+import React from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import renderHtml from 'react-html-parser';
 
-import { getCategoryList } from '../actions/actions.js';
+import { getCategoryList, searchArticle } from '../actions/actions.js';
 import Nav from '../components/nav.js';
 
 const mapStateToProps = ({ list }) => ({ list });
 
-const mapDispathToProps = dispath => ({
-  getList: (id) => dispath(getCategoryList.categoryPending(id))
+const mapDispathToProps = dispatch => ({
+  getList: (id) => dispatch(getCategoryList.categoryPending(id)),
+  searchArticle: (text) => {
+    if(text.key == 'Enter')
+      dispatch(searchArticle.searchPending(text.target))
+  }
 });
 
 class CategoryList extends React.Component {
@@ -21,16 +25,29 @@ class CategoryList extends React.Component {
     this.props.getList(this.props.match.params.id);
   }
 
-  componentWillUpdate(prevProps) {
-    if(prevProps.match.params.id != this.props.match.params.id)
-      this.props.getList(prevProps.match.params.id);
+  componentDidMount() {
+    let script = document.createElement('script');
+    script.setAttribute('src', '/js/list.js');
+    document.body.appendChild(script);
+  }
 
+  componentWillUpdate(prevProps) {
+    if(prevProps.match.params.id != this.props.match.params.id) {
+      this.props.getList(prevProps.match.params.id);
+      let script = document.createElement('script');
+      script.setAttribute('src', '/js/list.js');
+      document.body.appendChild(script);
+    }
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
-        <Nav />
+        <Nav 
+            searchArticle={this.props.searchArticle}
+            history={this.props.history}
+        />
         <h3 className="text-center"></h3>
         <div className="col-xs-10">
           <div className="row">
@@ -46,7 +63,7 @@ class CategoryList extends React.Component {
                         </div>
                         <div className="text-block">
                           <h4>{item.title}</h4>
-                          <p id='content' className="text-news">{renderHtml(item.discription)}</p>
+                          <p id='content' className="text-news">{item.discription}</p>
                         </div>
                       </Link>
                     </div>

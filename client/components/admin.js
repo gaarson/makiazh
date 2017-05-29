@@ -2,13 +2,19 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import { getCategoryList, createArticle } from '../actions/actions.js';
+import { getCategoryList,
+         deleteArticle,
+         publishedArticle,
+         searchArticle } from '../actions/actions.js';
 
 const mapStateToProps = ({ list }) => ({ list });
 
-const mapDispathToProps = dispath => ({
-  getList: (id) => dispath(getCategoryList.categoryPending(id)),
-  deleteArticle: (id) => dispath(createArticle.deleteArticle(id)),
+const mapDispathToProps = dispatch => ({
+  getList: (id) => dispatch(getCategoryList.categoryPending(id)),
+  deleteArticle: (id) => dispatch(deleteArticle.deletePending(id)),
+  editArticle: (id) => dispatch(editArticle.editPending(id)),
+  publishedArticle: (check) => dispatch(publishedArticle.publishedPending(check)),
+  searchArticle: (text) => dispatch(searchArticlel.searchSuccess(text))
 });
 
 class Admin extends React.Component {
@@ -27,7 +33,7 @@ class Admin extends React.Component {
     return (
       <div>
         <header className="title-page">
-        <h3>Администрирование</h3>
+        <a href="/admin"><h3>Администрирование</h3></a>
         <form className="search" action="admin.html" method="post">
           <div className="input-group">
               <input type="text" className="form-control" placeholder="Search" name="q" />
@@ -38,7 +44,7 @@ class Admin extends React.Component {
         </form>
       </header>
       <div className="articles">
-        <Link to="/create/0" className="create">Создать статью</Link>
+        <Link to="/create/new" className="create">Создать статью</Link>
         <ul>
           {
             list.map(item => {
@@ -46,8 +52,14 @@ class Admin extends React.Component {
                 <li key={item.id} className="article">
                   <ul className="buttons">
                     <li><a href="#" className="publish"><i className="fa fa-check"></i></a></li>
-                    <li><a href="#" className="delete"><i className="fa fa-trash-o"></i></a></li>
-                    <li><Link to={"/create/" + item.id} className="update"><i className="fa fa-refresh"></i></Link></li>
+                    <li><a
+                        className="delete" 
+                        onClick={() => this.props.deleteArticle(item.id)}>
+                        <i className="fa fa-trash-o"></i></a></li>
+
+                    <li><Link to={"/create/" + item.id} 
+                            className="update">
+                        <i className="fa fa-refresh"></i></Link></li>
                   </ul>
                   <h3>{item.title}</h3>
                 </li>

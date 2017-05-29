@@ -10,6 +10,7 @@ const reqHomepageData = () => {
       .end((err, res) => {
         if(err) reject(err)
         
+        console.log(res);
         let data = JSON.parse(res.text);
         resolve(data);
       })

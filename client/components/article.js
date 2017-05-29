@@ -2,14 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import renderHtml from 'react-html-parser';
 
-import {getArticle} from '../actions/actions.js';
+import {getArticle, searchArticle} from '../actions/actions.js';
 
 import Nav from './nav.js';
 
 const mapStateToProps = ({ article }) => ({ article });
 
 const mapDispatchToProps = dispatch => ({
-  getArticle: (id) => dispatch(getArticle.articlePending(id))
+  getArticle: (id) => dispatch(getArticle.articlePending(id)),
+  searchArticle: (text) => {
+    if(text.key == 'Enter')
+      dispatch(searchArticle.searchPending(text.target))
+  }
 });
 
 class Article extends React.Component {
@@ -34,7 +38,8 @@ class Article extends React.Component {
     const {discription, title, logo} = this.props.article;
     return(
       <div>
-        <Nav/>
+        <Nav searchArticle={this.props.searchArticle}
+              history={this.props.history}/>
         <div className='container'>
 
           <div className='row'>
