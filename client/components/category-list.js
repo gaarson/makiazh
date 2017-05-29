@@ -65,15 +65,15 @@ class CategoryList extends React.Component {
                 this.props.list.map(item => {
                   return(
                     <div key={item.id} className="article">
-                      <Link to={"/article/" + item.id} className="article-link">
+                      <a href={"/article/" + item.id} className="article-link">
                         <div className="img-block">
-                          <img src={item.logo} alt="club" />
+                          <img src={item.logo} />
                         </div>
                         <div className="text-block">
                           <h4>{item.title}</h4>
                           <p id='content' className="text-news">{item.discription}</p>
                         </div>
-                      </Link>
+                      </a>
                     </div>
                   )
                 })
