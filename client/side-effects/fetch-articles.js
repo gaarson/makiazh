@@ -59,7 +59,6 @@ const reqArticlesList = (category_id) => {
       .end((err, res) => {
         if(err) reject(err);
 
-        console.log(res.body);
         resolve(res.body);
       })
   })
@@ -75,7 +74,6 @@ const sendLogo = (File, category) => {
       .end((err, res) => {
       if(err) reject(err)
       
-      console.log(res)
       resolve(res.body);
       })
   })

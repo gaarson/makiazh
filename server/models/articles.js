@@ -26,9 +26,8 @@ exports.getArticle = (id, cb) => {
 }
 
 exports.findArticles = (text, cb) => {
-  const sqlFind = `SELECT id, title, logo, discription FROM articles WHERE title LIKE '${text}'`;
+  const sqlFind = `SELECT id, title, logo, discription FROM articles WHERE title LIKE ('${text}%')`;
   db.get().query(sqlFind).then(rows => {
-    console.log(rows);
     return cb(rows);
   }).catch(error => {
     console.log(error);
