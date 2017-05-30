@@ -24,16 +24,22 @@ class Find extends React.Component {
   }
 
   componentDidMount() {
-    let script = document.createElement('script');
-    script.setAttribute('src', '/js/list.js');
-    document.body.appendChild(script);
+      setTimeout(() => {
+    $('.text-news').each(function (shortme) {
+          console.log('work');
+          $(this).replaceWith("<p id='short-id"+shortme+"' class='text-news shortme'>" + $(this).text().substr(0,460) + "&hellip;</p>");
+      });
+      }, 200)
   }
 
   componentWillUpdate(prevProps) {
     if(prevProps.match.params.id != this.props.match.params.id) {
-      let script = document.createElement('script');
-      script.setAttribute('src', '/js/list.js');
-      document.body.appendChild(script);
+      setTimeout(() => {
+    $('.text-news').each(function (shortme) {
+          console.log('work');
+          $(this).replaceWith("<p id='short-id"+shortme+"' class='text-news shortme'>" + $(this).text().substr(0,460) + "&hellip;</p>");
+      });
+      }, 200)
     
     }
 
